@@ -4,7 +4,7 @@ export const db = new sqlite3.Database('./database.db', (err) => {
     if (err) {
         console.log(err.message);
     }
-    console.log('Conected to the socialmedia database')
+    console.log('Conected to the sport socialmedia database')
 });
 
 db.run(`
@@ -22,7 +22,8 @@ db.run(`
         IF NOT EXISTS
         posts(
             id INTEGER PRIMARY KEY,
-            FOREIGN KEY (id_fromuser) REFERENCES users(id)
+            idfromuser INTEGER,
+            FOREIGN KEY(idfromuser) REFERENCES users(id),
             content TEXT NOT NULL
         )
 `);
@@ -32,7 +33,8 @@ db.run(`
         IF NOT EXISTS
         comments(
             id INTEGER PRIMARY KEY,
-            FOREIGN KEY (id_frompost) REFERENCES posts(id)
+            idfrompost INTEGER,
+            FOREIGN KEY(idfrompost) REFERENCES posts(id),
             content TEXT NOT NULL
         )
 `)
@@ -41,8 +43,12 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         friends(
-            id INTEGER PRIMARY KEY,            
-            FOREIGN KEY (id_friendof) REFERENCES users(id)
-            name TEXT NOT NULL
+            request_user INTEGER,            
+            FOREIGN KEY (request_user) REFERENCES users(id),
+            confirm_user INTEGER,
+            FOREIGN KEY(confirm_user) REFERENCES users(id),
+            confirmed FALSE
         )
 `)
+
+export default db;
