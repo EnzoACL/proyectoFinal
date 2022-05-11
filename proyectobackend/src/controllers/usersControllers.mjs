@@ -1,6 +1,6 @@
 import db from "../models/dataBase.mjs"
 
-export function getUserController(request, response) {
+export function getUsersController(request, response) {
     db.all(`SELECT id, name FROM users`,
         (err, data) => {
             if (err) {
