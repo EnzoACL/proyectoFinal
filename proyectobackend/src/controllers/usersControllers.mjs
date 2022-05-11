@@ -12,6 +12,21 @@ export function getUsersController(request, response) {
         }
     )
 }
+export function getOneUserController(request, response) {
+    const { id } = request.body
+    db.get(
+        `SELECT * FROM users WHERE id=("${id}")`,
+        (err, data) => {
+            if (err) {
+                console.error(err);
+                response.sendStatus(500)
+            } else {
+                response.json(data)
+            }
+        }
+    )
+}
+
 export function postUserController(request, response) {
     const { name, password } = request.body;
     db.run(
