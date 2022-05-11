@@ -22,9 +22,10 @@ db.run(`
         IF NOT EXISTS
         posts(
             id INTEGER PRIMARY KEY,
+            content TEXT NOT NULL,
             idfromuser INTEGER,
-            FOREIGN KEY(idfromuser) REFERENCES users(id),
-            content TEXT NOT NULL
+            FOREIGN KEY(idfromuser) REFERENCES users(id)
+            
         )
 `);
 
@@ -33,9 +34,9 @@ db.run(`
         IF NOT EXISTS
         comments(
             id INTEGER PRIMARY KEY,
+            content TEXT NOT NULL,
             idfrompost INTEGER,
-            FOREIGN KEY(idfrompost) REFERENCES posts(id),
-            content TEXT NOT NULL
+            FOREIGN KEY(idfrompost) REFERENCES posts(id)
         )
 `)
 
@@ -43,11 +44,12 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         friends(
-            request_user INTEGER,            
-            FOREIGN KEY (request_user) REFERENCES users(id),
-            confirm_user INTEGER,
-            FOREIGN KEY(confirm_user) REFERENCES users(id),
-            confirmed FALSE
+            request_userid INTEGER,            
+            confirm_userid INTEGER,
+            confirmed FALSE,
+            FOREIGN KEY(request_user) REFERENCES users(id),
+            FOREIGN KEY(confirm_user) REFERENCES users(id)
+            
         )
 `)
 
