@@ -13,7 +13,9 @@ db.run(`
         users(
             id INTEGER PRIMARY KEY,
             name TEXT NOT NULL,
-            password TEXT NOT NULL
+            password TEXT NOT NULL,
+            isgroup BOOLEAN DEFAULT FALSE NOT NULL
+
         )
 `);
 
@@ -36,9 +38,11 @@ db.run(`
             id INTEGER PRIMARY KEY,
             content TEXT NOT NULL,
             idfrompost INTEGER,
-            FOREIGN KEY(idfrompost) REFERENCES posts(id)
+            idfromusercomment INTEGER,
+            FOREIGN KEY(idfrompost) REFERENCES posts(id),
+            FOREIGN KEY (idfromusercomment) REFERENCES users(id)
         )
-`)
+`);
 
 db.run(`
     CREATE TABLE
@@ -46,11 +50,11 @@ db.run(`
         friends(
             request_userid INTEGER,            
             confirm_userid INTEGER,
-            confirmed FALSE,
-            FOREIGN KEY(request_user) REFERENCES users(id),
-            FOREIGN KEY(confirm_user) REFERENCES users(id)
+            confirmed BOOLEAN DEFAULT false NOT NULL,
+            FOREIGN KEY(request_userid) REFERENCES users(id),
+            FOREIGN KEY(confirm_userid) REFERENCES users(id)
             
         )
-`)
+`);
 
 export default db;

@@ -2,7 +2,7 @@ import db from "../models/dataBase.mjs"
 
 export function getPublicationsOfUserController(request, response) {
     const { idfromuser } = request.body
-    db.get(
+    db.all(
         `SELECT * FROM posts WHERE idfromuser=("${idfromuser}")`,
         (err, data) => {
             if (err) {

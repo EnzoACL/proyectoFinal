@@ -9,15 +9,16 @@ export function getComments (request,response) {
                 console.error(err);
                 response.sendStatus(500);
             } else {
-                response.json
+                response.json(data);
             }
         }
     )
 }
 export function postComment (request, response) {
-    const { content, idfrompost } = request.body
+    const { content, idfrompost, idfromuser } = request.body
     db.run(
-        `INSErT INTO comments(content, idfrompost) VALUES ("${content}","${idfrompost}")`,
+        `INSERT INTO comments(content, idfrompost, idfromusercomment) 
+        VALUES ("${content}","${idfrompost}", "${idfromusercomment}")`,
             (err) => {
             if (err) {
                     console.error(err);
@@ -32,7 +33,7 @@ export function postComment (request, response) {
 export function deleteComment(request, response) {
     const { idfrompost, id } = request.body;
     db.run(
-        `DELETE FROM comments WHERE idfromuser=("${idfrompost}") AND id=("${id}")`,
+        `DELETE FROM comments WHERE idfrompost=("${idfrompost}") AND id=("${id}")`,
         (err) => {
             if (err) {
                 console.error(err);
