@@ -15,9 +15,14 @@ try {
     app.delete(PATH_PREFIX + "/publication/", jsonParser, deletePublicationController);
     app.get(PATH_PREFIX + "/publicationsofuser/", jsonParser, getPublicationsOfUserController);
 
-    app.get(PATH_PREFIX + "/comments", jsonParser, getComments);
+    app.get(PATH_PREFIX + "/comments/", jsonParser, getComments);
+    app.post(PATH_PREFIX + "/comment/", jsonParser, postComment);
+    app.delete(PATH_PREFIX + "/comment/", jsonParser, deleteComment);
+
+    app.get(PATH_PREFIX + "/friends/", jsonParser, getComments);
     app.post(PATH_PREFIX + "/comment", jsonParser, postComment);
     app.delete(PATH_PREFIX + "/comment", jsonParser, deleteComment);
+
     
     app.listen(process.env.PORT || 3000, () => {
         console.log("Express running...");

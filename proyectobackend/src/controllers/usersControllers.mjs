@@ -42,13 +42,3 @@ export function postUserController(request, response) {
     )
 }
 
-export function getFriendsOfUser(request, response) {
-    
-}
-
-/*`request_userid INTEGER,            
-            confirm_userid INTEGER,
-            confirmed BOOLEAN DEFAULT false NOT NULL,
-            FOREIGN KEY(request_userid) REFERENCES users(id),
-            FOREIGN KEY(confirm_userid) REFERENCES users(id)`*/
-            

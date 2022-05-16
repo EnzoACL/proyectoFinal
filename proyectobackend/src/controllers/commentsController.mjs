@@ -2,7 +2,7 @@ import db from "../models/dataBase.mjs"
 
 export function getComments (request,response) {
     const { idfrompost } = request.body
-    db.get(
+    db.all(
         `SELECT * FROM comments WHERE idfrompost=("${idfrompost}")`,
         (err, data) => {
             if (err) {
@@ -15,7 +15,7 @@ export function getComments (request,response) {
     )
 }
 export function postComment (request, response) {
-    const { content, idfrompost, idfromuser } = request.body
+    const { content, idfrompost, idfromusercomment } = request.body
     db.run(
         `INSERT INTO comments(content, idfrompost, idfromusercomment) 
         VALUES ("${content}","${idfrompost}", "${idfromusercomment}")`,
