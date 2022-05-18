@@ -1,8 +1,11 @@
 import db from "../models/dataBase.mjs"
-
+//No es una relacion simetrica, el request_userid sigue a confirm_userid
+//Si el confirm_userid quiere seguir al otro usuario se crea otra entrada siendo
+//él el request_userid.
 export function getFriendsOfUser(request, response) {
-    db.all(`SELECT confirm_userid FROM friends WHERE confirmed=("${true}")`,
-    (err, data) => {
+    const { confirm_userid, request_userid } = request.body
+    db.all(`SELECT * FROM friends WHERE confirmed=("${true}") request_userid=("${request_userid}")`,
+    (err, data) => {    
         if (err) {
             console.error(err);
             response.sendStatus(500)
@@ -13,17 +16,34 @@ export function getFriendsOfUser(request, response) {
 )
 }
 
-export function postFriendofUser(request, response) {
+export function postFriendOfUser(request, response) {
     const { request_userid, confirm_userid, confirmed } = request.body
     db.run(`INSERT INTO friends(request_userid, confirm_userid, confirmed)
-    VALUES ("${request_userid}","${confirm_userid}","${confirmed}") `)   
+    VALUES ("${request_userid}","${confirm_userid}","${confirmed}")`,
+        (err, data) => {
+            if (err) {
+                console.error(err);
+                response.sendStatus(500)
+            } else {
+                response.sendStatus(201)
+        }
+   }
+)
 }
-`INSERT INTO posts(idfromuser ,content) VALUES ("${idfromuser}","${content}")`,
-
-
-/*`request_userid INTEGER,            
-            confirm_userid INTEGER,
-            confirmed BOOLEAN DEFAULT false NOT NULL,
-            FOREIGN KEY(request_userid) REFERENCES users(id),
-            FOREIGN KEY(confirm_userid) REFERENCES users(id)`*/
-            
+/**
+ * El request userid borra/deja de seguir a confirm_userid pero si ambos se siguen
+ * el confirm_userid no deja de seguir al otro.
+ */
+export function deleteFriendOfUser(request, response) {
+    const { request_userid, confirm_userid  } = request.body
+    db.run(`DELETE from friends WHERE request_userid=("${request_userid}") and confirm_userid=("${confirm_userid}")`,
+        (err, data) => {
+            if (err) {
+                console.error(err);
+                response.sendStatus(500)
+            } else {
+                response.sendStatus(202)
+        }
+    }
+)    
+}           
