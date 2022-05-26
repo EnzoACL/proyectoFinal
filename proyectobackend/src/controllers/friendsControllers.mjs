@@ -3,8 +3,8 @@ import db from "../models/dataBase.mjs"
 //Si el confirm_userid quiere seguir al otro usuario se crea otra entrada siendo
 //él el request_userid.
 export function getFriendsOfUser(request, response) {
-    const { confirm_userid, request_userid } = request.body
-    db.all(`SELECT * FROM friends WHERE confirmed=("${true}") request_userid=("${request_userid}")`,
+     const { friendId } = request.params 
+    db.all(`SELECT * FROM friends WHERE request_userid=("${friendId}")`,
     (err, data) => {    
         if (err) {
             console.error(err);

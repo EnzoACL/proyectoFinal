@@ -1,9 +1,9 @@
 import db from "../models/dataBase.mjs"
 
 export function getComments (request,response) {
-    const { idfrompost } = request.body
+    const { commentsFromPostId } = request.params
     db.all(
-        `SELECT * FROM comments WHERE idfrompost=("${idfrompost}")`,
+        `SELECT * FROM comments WHERE idfrompost=("${commentsFromPostId}")`,
         (err, data) => {
             if (err) {
                 console.error(err);

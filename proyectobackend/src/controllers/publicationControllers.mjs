@@ -1,9 +1,9 @@
 import db from "../models/dataBase.mjs"
 
 export function getPublicationsOfUserController(request, response) {
-    const { idfromuser } = request.body
+    const { publicationsUserId } = request.params
     db.all(
-        `SELECT * FROM posts WHERE idfromuser=("${idfromuser}")`,
+        `SELECT * FROM posts WHERE idfromuser=("${publicationsUserId}")`,
         (err, data) => {
             if (err) {
                 console.error(err);
@@ -43,3 +43,4 @@ export function deletePublicationController(request, response) {
         }
     )
 }
+

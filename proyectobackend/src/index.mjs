@@ -12,26 +12,26 @@ const app = express();
 try {
     const jsonParser = express.json();
     app.get(PATH_PREFIX + "/users/", jsonParser, getUsersController);
-    app.get(PATH_PREFIX + "/user/", jsonParser, getOneUserController);
+    app.get(PATH_PREFIX + "/user/:userId", jsonParser, getOneUserController);
     app.post(PATH_PREFIX + "/users/", jsonParser, postUserController);
 
     app.post(PATH_PREFIX + "/publication/", jsonParser, authMiddleware , postPublicationController);
     app.delete(PATH_PREFIX + "/publication/", jsonParser, authMiddleware, deletePublicationController);
-    app.get(PATH_PREFIX + "/publicationsofuser/", jsonParser, getPublicationsOfUserController);
+    app.get(PATH_PREFIX + "/publicationsofuser/:publicationsUserId", jsonParser, getPublicationsOfUserController);
 
-    app.get(PATH_PREFIX + "/comments/", jsonParser, getComments);
+    app.get(PATH_PREFIX + "/comments/:commentsFromPostId", jsonParser, getComments);
     app.post(PATH_PREFIX + "/comment/", jsonParser, postComment);
     app.delete(PATH_PREFIX + "/comment/", jsonParser, deleteComment);
     app.post(PATH_PREFIX + "/comment", jsonParser, postComment);
     app.delete(PATH_PREFIX + "/comment", jsonParser, deleteComment);
 
-    app.get(PATH_PREFIX + "/friends/", jsonParser, getFriendsOfUser);
+    app.get(PATH_PREFIX + "/friends/:friendId", jsonParser, getFriendsOfUser);
     app.post(PATH_PREFIX + "/friend/", jsonParser, postFriendOfUser);
     app.delete(PATH_PREFIX + "/friend/", jsonParser, deleteFriendOfUser);
 
 
     
-    app.listen(process.env.PORT || 3000, () => {
+    app.listen(process.env.PORT || 4000, () => {
         console.log("Express running...");
 
     });

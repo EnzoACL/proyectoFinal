@@ -13,9 +13,10 @@ export function getUsersController(request, response) {
     )
 }
 export function getOneUserController(request, response) {
-    const { id } = request.body
+    const { userId } = request.params 
+
     db.get(
-        `SELECT * FROM users WHERE id=("${id}")`,
+        `SELECT * FROM users WHERE id=("${userId}")`,
         (err, data) => {
             if (err) {
                 console.error(err);
