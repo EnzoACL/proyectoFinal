@@ -3,16 +3,29 @@ import { get } from '../../aux_api'
 
  function Comments() {
     const [commentsShow, setCommentsShow] = useState ("")
-    const commentsFromPostId = 1
-  
+    const commentsFromPostId = 1 //valor que determina el post que es
+    const arrayComments = []
     
      async function showComments() {
-        const commentsFromPost = await get(`http://localhost:4000/name/V0.0/comments/${commentsFromPostId}`)
-        const commentsString = JSON.stringify(commentsFromPost);
+         const commentsFromPost = await get(`http://localhost:4000/name/V0.0/comments/${commentsFromPostId}`)
+         const users = await get("http://localhost:4000/name/V0.0/users/");
+         for (let item of commentsFromPost) {
+             for (let thing of users) {
+                if (thing.id === item.idfromusercomment) {
+                    arrayComments.push(`${thing.name}:${item.content}`);
+                 }                       
+             }                              
+        }         
          if (commentsShow === "") {
-            setCommentsShow(commentsString)
+             setCommentsShow(<ul>
+                 {arrayComments.map((arrayComments) => (
+                     <li>{arrayComments}</li>
+                 ))}
+             </ul>);
         } else {setCommentsShow("")}
-    }
+     }
+     /* Hay que usar el idfromusercomment de alguna forma para traer la info del usuario
+     y asi sacar el nombre  */
 
     return (
         <>
