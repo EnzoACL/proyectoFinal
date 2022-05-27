@@ -20,3 +20,5 @@ export function ContextProvider({ children }) {
     )
 }
 
+//para usar context data.user data.password data.userId
+

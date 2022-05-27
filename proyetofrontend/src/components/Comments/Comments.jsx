@@ -12,7 +12,7 @@ import { get } from '../../aux_api'
          for (let item of commentsFromPost) {
              for (let thing of users) {
                 if (thing.id === item.idfromusercomment) {
-                    arrayComments.push(`${thing.name}:${item.content}`);
+                    arrayComments.push(`${thing.name}: ${item.content}`);
                  }                       
              }                              
         }         
