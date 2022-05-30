@@ -1,8 +1,9 @@
 
-function Avatar(props) {
+function Avatar({url , info}) {
+    
         return (
             <>
-                <img src={props.url} alt={props.info}/>  
+                <img src={url} alt={info}/>  
             </>
     )
     

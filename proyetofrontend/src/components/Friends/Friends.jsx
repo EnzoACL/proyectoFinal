@@ -24,7 +24,7 @@ export function Friends() {
     
     return (
         <>
-            <h1>Friends</h1>
+            <p>Amigos</p>
             <input type="button" value="Lista amigos" onClick={getFriendsOf}/>
             <p>{friendList}</p>
         </>
