@@ -3,7 +3,7 @@ import Avatar from '../Avatar/Avatar'
 import { Context } from '../Storage/Storage'
 import UserData from '../UserData/UserData'
 import Buttons from '../ButtonsRRSS/Buttons'
-import Comments from '../Comments/Comments'
+import ShowComments from '../Comments/ShowComments'
 import Posts from '../Post/Posts'
 import Friends from '../Friends/Friends'
 
@@ -15,7 +15,7 @@ function Personal() {
         <>
             <h1>Ejemplo de perfil</h1>
             <UserData/>
-            <Posts userId={ data.userId }/>           
+            <Posts userId={data.userId}></Posts>           
             <Friends/>
 
 
