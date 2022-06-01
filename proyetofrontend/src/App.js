@@ -5,19 +5,19 @@ import LoginPage from './components/Loginpage';
 import Post from './components/Post/Posts'
 import Friends from './components/Friends/Friends';
 import Personal from './components/PersonalProfile/Personal'
-
+import CreatePost from './components/Post/CreatePost';
 
 
 
 function App() {
 
-const [messageContent, setMessageContent] = useState("Ejemplo de mensaje post publicacion etc")
 
 
   return (
     <> 
         
-      <Personal/>
+      <Personal />
+      <CreatePost/>
       
     </>
 )

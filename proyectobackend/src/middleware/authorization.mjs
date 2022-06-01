@@ -12,7 +12,7 @@ function decodeAuthBasic(headerContent) {
 }
 
 export function authMiddleware(request, response, next) {
-    const { methos, name, password } = decodeAuthBasic(request.headers.authorization);
+    const { method, name, password } = decodeAuthBasic(request.headers.authorization);
     db.get(
         `SELECT * FROM users WHERE
         name = "${name}"
