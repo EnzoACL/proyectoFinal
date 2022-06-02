@@ -14,8 +14,26 @@ function Posts({ userId }) {
         const postId = postsOfUser.map(
             item => item.id
         )
+        setListOfPost(<p>
+            {
+                
+                postsOfUser.map((postsOfUser) => (
+                    <>
+                        <div key={postsOfUser.id}>
+                            <p>{postsOfUser.content}</p>
+                            <p><Buttons></Buttons></p>
+                            <p><ShowComments postId={postsOfUser.id}/></p>
+                            
+                        </div> 
+                    </>
+                ))
+            }
+             
+             </p>)
+
+
    
-       setListOfPost(<p>
+       /*setListOfPost(<p>
             {arrayOfPost.map((arrayOfPost) => (
                 <>
                     <ul>
@@ -37,7 +55,7 @@ function Posts({ userId }) {
                 )
             )
            }
-       </p>)
+       </p>)*/
     }
     //Revisar estructura comentarios en posts para que los comentarios salgan debajo de su posts.
     
