@@ -18,8 +18,10 @@ export function Friends() {
                 if (item.id === thing.confirm_userid)
                     friendListArray.push(item.name);
             }            
-        }                   
-        setFriendList(friendListArray);
+        }
+        setFriendList(friendListArray.map(
+            (item) => <ul>{item}</ul>
+        ));
     }
     
     return (
