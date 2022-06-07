@@ -10,11 +10,10 @@ import Friends from '../Friends/Friends'
 //El componente Personal muestra el perfil del usuario conectado actualmente.
 function Personal() {
     const data = useContext(Context);
-    console.log(data.userId);
     return (
         <>
             <h1>Ejemplo de perfil</h1>
-            <UserData/>
+            <UserData userName={data.user}/>
             <Posts userId={data.userId}></Posts>           
             <Friends/>
 
@@ -24,5 +23,5 @@ function Personal() {
 }
 
 export default Personal
-
+//Pasar props a user data para poder reutilizar componente tanto para usuario logueado como para otro usuario.
 
