@@ -8,29 +8,26 @@ function Posts({ userId }) {
 
     async function getPostOf(){
         const postsOfUser = await get(`http://localhost:4000/name/V0.0/publicationsofuser/${userId}`)
-        const arrayOfPost = postsOfUser.map(
-            item => item.content
-        )
-        const postId = postsOfUser.map(
-            item => item.id
-        )
+        const postsOfUserReversed = [...postsOfUser].reverse();
+        console.log(postsOfUserReversed);
         setListOfPost(<p>
             {
                 
-                postsOfUser.map((postsOfUser) => (
+                postsOfUserReversed.map((post) => (
                     <>
-                        <div key={postsOfUser.id}>
-                            <p>{postsOfUser.content}</p>
+                        <div key={post.id}>
+                            <p>{post.content}</p>
                             <p><Buttons></Buttons></p>
-                            <p><ShowComments postId={postsOfUser.id}/></p>
-                            
+                            <p><ShowComments postId={post.id}/></p>
                         </div> 
                     </>
                 ))
             }
+            
              
              </p>)
 
+        
 
    
        /*setListOfPost(<p>
