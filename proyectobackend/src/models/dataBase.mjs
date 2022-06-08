@@ -18,7 +18,7 @@ db.run(`
 
         )
 `);
-
+//Introducir campo DATETIME para poder hacer el feed
 db.run(`
     CREATE TABLE
         IF NOT EXISTS
@@ -26,7 +26,9 @@ db.run(`
             id INTEGER PRIMARY KEY,
             content TEXT NOT NULL,
             idfromuser INTEGER,
-            FOREIGN KEY(idfromuser) REFERENCES users(id)
+            FOREIGN KEY(idfromuser) REFERENCES users(id),
+            timeposted INTEGER
+            
             
         )
 `);

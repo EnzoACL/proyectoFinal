@@ -9,6 +9,7 @@ function SearchBar() {
     
     const getUserNameOf = (event) => {
         setUserNameOf(event.target.value)
+        
     }
 
     /**
@@ -19,9 +20,9 @@ function SearchBar() {
     function filterFunction(item) {
          if (item.includes(userNameOf)) {
             return item
-        }
-       
+        }       
     }
+    
     
     async function startSearch() {
         const users = await get("http://localhost:4000/name/V0.0/users/");

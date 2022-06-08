@@ -14,11 +14,11 @@ export function getPublicationsOfUserController(request, response) {
         }
     )
 }
-
+//Introducir datatime en el controlador
 export function postPublicationController(request, response) {
     const { idfromuser, content } = request.body;
-    db.run(
-        `INSERT INTO posts(idfromuser ,content) VALUES ("${idfromuser}","${content}")`,
+    db.run(//Preguntar lo de Date.now
+        `INSERT INTO posts(idfromuser ,content, timeposted) VALUES ("${idfromuser}","${content}","${Date.now()}")`,
         (err)=> {
             if (err) {
                 console.error(err);

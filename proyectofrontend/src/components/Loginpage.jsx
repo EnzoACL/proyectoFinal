@@ -28,16 +28,12 @@ function LoginPage ({dataSetter}) {
     async function getData() {
         const users = await get("http://localhost:4000/name/V0.0/users/");
         const usersString = JSON.stringify(users);
-        console.log(usersString)
         // Bucle para obtener el ID del usuario usando su nombre
         for (let idx = 0; idx < users.length; idx++) {
-            if (userName === users[idx].name) {
-                setUserId(users[idx].id)             
-                
-             }
-            
-        }
-        
+            if (userName === users[idx].name) {               
+                setUserId(users[idx].id)               
+             }            
+        }        
     }
 
     return (

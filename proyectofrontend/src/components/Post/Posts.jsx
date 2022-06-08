@@ -9,7 +9,6 @@ function Posts({ userId }) {
     async function getPostOf(){
         const postsOfUser = await get(`http://localhost:4000/name/V0.0/publicationsofuser/${userId}`)
         const postsOfUserReversed = [...postsOfUser].reverse();
-        console.log(postsOfUserReversed);
         setListOfPost(<p>
             {
                 
@@ -26,38 +25,10 @@ function Posts({ userId }) {
             
              
              </p>)
-
-        
-
-   
-       /*setListOfPost(<p>
-            {arrayOfPost.map((arrayOfPost) => (
-                <>
-                    <ul>
-                    {arrayOfPost}
-                    <p><Buttons></Buttons></p>
-
-                    </ul>
-                </>
-            
-                )
-             )
-           }
-           {postId.map((postId) => (
-               <>
-                   <ul>
-                       <ShowComments postId={postId}/>
-                   </ul>
-               </>
-                )
-            )
-           }
-       </p>)*/
-    }
-    //Revisar estructura comentarios en posts para que los comentarios salgan debajo de su posts.
-    
+    }    
     return (
         <>
+            
             <input type="button" value="Posts de usuario " onClick={getPostOf} />
             <p>{listOfPost}</p>
 
@@ -65,6 +36,5 @@ function Posts({ userId }) {
         </>
     )
 }
-
 export default Posts
 

@@ -8,11 +8,12 @@ export async function get(url) {
     const data = await response.json();
     return data;
 }
+
 /**
  * 
  * @param {string} url - Url para hacer post.
- * @param {*string} token - Token de autorizacion.
- * @param {object} data - Objeto que incluye: usuario y contenido del post.
+ * @param {string} token - Token de autorizacion.
+ * @param {string} data - String que incluye: idusuario y contenido del post.
  * @returns 
  */
 export async function authPost(url, token, data) {
@@ -30,6 +31,7 @@ export async function authPost(url, token, data) {
     const responseData = await response.json();
     return responseData;
 }
+
 
 /**
  * 

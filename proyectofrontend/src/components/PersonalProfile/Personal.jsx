@@ -13,7 +13,7 @@ function Personal() {
     return (
         <>
             <h1>Ejemplo de perfil</h1>
-            <UserData userName={data.user}/>
+            <UserData userName={data.userId}/>
             <Posts userId={data.userId}></Posts>           
             <Friends/>
 
