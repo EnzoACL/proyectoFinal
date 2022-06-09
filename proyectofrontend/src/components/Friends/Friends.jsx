@@ -14,30 +14,30 @@ export function Friends() {
         //Se compara los id de lista de amigos y usuarios y se saca los nombres de los amigos
         const friendsOfUsers = await get(`http://localhost:4000/name/V0.0/friends/${data.userId}`);        
         const users = await get("http://localhost:4000/name/V0.0/users/");       
-        console.log(users);
-        console.log(friendsOfUsers);
+       
         for (let item of users) {
             for (let thing of friendsOfUsers) {
                 if (item.id === thing.confirm_userid)
-                    friendListArray.push(item.name);
-                if (thing.confirm_userid === item.id) {
-                    friendListIds.push(thing.confirm_userid);                    
-                }
+                    friendListArray.push(item);
+                
             }            
         }
-        
-       
-            friendListArray.map(
-                (item) => <ul>{item}</ul>
-            )
-                        
-            friendListIds.map(
-                (item) => <UserData userId={item}/>
-            )
-            
-        
-        
+        setFriendList(
+            <>
+                {
+                    friendListArray.map((friends) => (
+                        <>
+                            <div key={friends.id}>
+                                <p><UserData userId={friends.id} /></p>    
+                            </div>
+                        </>
+                    ))
+                }
+            </>
+        )
     }
+
+
     
     return (
         <>
