@@ -15,13 +15,28 @@ function App() {
 
   return (
     <> 
-      <RegistrerPage/>
+      <h1>______________________________</h1>
       <Personal />
-      <CreatePost/>
+      <h1>______________________________</h1>
+      <CreatePost />
+      <h1>______________________________</h1>
       <SearchBar />
-      <UserFeed/>
+      <h1>______________________________</h1>
+      <UserFeed />
+      <h1>______________________________</h1>
     </>
 )
 }
 
 export default App;
+
+//Mejorar buscador para que busque de forma dinamica.
+
+//Cambiar base de datos para añadir la fecha de los post y quizas una descripccion personalizada para cada usuario.
+
+//Añadir react router link en user data para generar links a los perfiles de los usuarios usando el id que le pasamos
+//al componente. 
+
+//Arreglar el componente de CreatePost (el post que se crea no tiene contenido).
+
+

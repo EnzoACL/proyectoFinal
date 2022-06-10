@@ -37,13 +37,13 @@ function LoginPage ({dataSetter}) {
     }
 
     return (
-        <>
+        <>            
             <h1>Log in</h1>
             <p>User:</p>
             <input type="text" onChange={getUserName} />
             <p>Password:</p>
             <input type="text" onChange={getUserPassword} />
-            <input type="button" value="Entrar" onClick={getData}/>
+            <input type="button" value="Entrar" onClick={getData} />            
         </>
     );
 }

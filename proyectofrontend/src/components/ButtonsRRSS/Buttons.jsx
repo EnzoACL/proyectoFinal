@@ -4,7 +4,6 @@ function Buttons() {
         <>
             <input type="button" value="Like" />            
             <input type="button" value="Comentar" />            
-            <input type="button" value="Compartir" />
         </>
     )
 }

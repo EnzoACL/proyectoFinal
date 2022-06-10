@@ -16,7 +16,6 @@ function UserData({ userId }) {
             }
         }
     }
-
     userNameSetter();      
     
     
@@ -25,9 +24,8 @@ function UserData({ userId }) {
     return (
         <>
             
-            <Avatar url={urlAvatar} info={infoAvatar} onLoad={userNameSetter} />
-            <p>Usuario:{nameOfUser}</p>
-                        
+            <Avatar url={urlAvatar} info={infoAvatar}/>
+            {nameOfUser}                       
         </>
     )
 }

@@ -14,8 +14,6 @@ export function ContextProvider({ children }) {
         <>
           <LoginPage dataSetter={setData}/>
             <Context.Provider value={data}>
-
-
                 {children}
             </Context.Provider>
         </>
