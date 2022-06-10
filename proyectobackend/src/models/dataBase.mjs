@@ -25,10 +25,9 @@ db.run(`
         posts(
             id INTEGER PRIMARY KEY,
             content TEXT NOT NULL,
+            timeposted INTEGER,
             idfromuser INTEGER,
-            FOREIGN KEY(idfromuser) REFERENCES users(id),
-            timeposted INTEGER
-            
+            FOREIGN KEY(idfromuser) REFERENCES users(id)
             
         )
 `);
