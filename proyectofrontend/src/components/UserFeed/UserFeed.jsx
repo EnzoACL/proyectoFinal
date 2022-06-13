@@ -4,9 +4,11 @@ import { get } from '../../aux_api';
 import Posts from '../Post/Posts';
 
 
-function UserFeed({ ifOfUser }) {
+function UserFeed() {
     const [postsOfFeed, setPostsOfFeed] = useState("");
     const data = useContext(Context)
+    
+  
     //para usar context data.user data.password data.userId
 
     //Enseñar ultimos posts de gente que sigue el userId
@@ -17,10 +19,18 @@ function UserFeed({ ifOfUser }) {
         const arrayConfirm_userid = friendsOfUser.map(
            item => item.confirm_userid
         )
-        console.log(arrayConfirm_userid);
-        setPostsOfFeed(<Posts userId={3}/>)
-    } //Hay que modificar base de datos.
+        for (let item of arrayConfirm_userid) {
+            const postsOfFriends = (await get(`http://localhost:4000/name/V0.0/publicationsofuser/${item}`))
+            for (let item of postsOfFriends) {
+                //Hay que comparar los timeposted y enseñar los posts de los amigos de mayor a menor
+                //timeposted para que se muestren los mas recientes primero.
+                //Tambien se puede hacer un reverse de postOfFriends y hacer un map ya que los ultimos añadidos
+                //seran los mas actuales.
+            }
+        }
 
+        
+    } 
     return (
         <>
             <h1>Feed de {data.user} id:{data.userId}</h1>
