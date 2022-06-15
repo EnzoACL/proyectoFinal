@@ -10,13 +10,14 @@ import UserData from '../UserData/UserData';
     
      async function showComments() {
          const commentsFromPost = await get(`http://localhost:4000/name/V0.0/comments/${postId}`)
-         console.log(commentsFromPost);
-         setCommentsShow(
+         if (commentsShow === "") {
+             setCommentsShow(
                  <>
                      <UserData userId={commentsFromPost[0].idfromusercomment} />
                      : {commentsFromPost[0].content}
                  </>
-            )  
+             )
+         } else {setCommentsShow("")} 
      }
     return (
         <>

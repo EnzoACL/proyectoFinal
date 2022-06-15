@@ -44,3 +44,15 @@ export function authToken(id, secret) {
     const base64token = btoa(authToken);
     return `Basic ${base64token}`;
 }
+
+/**
+ * 
+ * @param {number} miliseconds Funcion usada para modificar la fecha de milisecs a fecha-hora
+ * @returns 
+ */
+export function dateArrange(miliseconds) {
+    let time = new Date(miliseconds);
+    let timeToString = time.toString()
+    const timeArranged = timeToString.replace('GMT+0200 (hora de verano de Europa central)', '')
+    return timeArranged
+}
