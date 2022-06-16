@@ -8,12 +8,13 @@ export function ContextProvider({ children }) {
         user: "",
         password: "",
         userId: "",
+        loggedIn: false,
     });
-    
     return (
         <>
-          <LoginPage dataSetter={setData}/>
+            {!data.loggedIn && <LoginPage dataSetter={setData} />}
             <Context.Provider value={data}>
+               
                 {children}
             </Context.Provider>
         </>

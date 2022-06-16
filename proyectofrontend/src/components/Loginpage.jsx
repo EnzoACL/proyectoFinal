@@ -5,6 +5,7 @@ function LoginPage ({dataSetter}) {
     const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
     const [userId, setUserId] = useState();
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const getUserName = (event) => {
         setUserName(event.target.value)
@@ -20,9 +21,10 @@ function LoginPage ({dataSetter}) {
                 user: userName,
                 password: password,
                 userId: userId,
+                loggedIn: loggedIn,
             })
         },
-        [userName, password, userId]
+        [userName, password, userId, loggedIn]
     )
     
     async function getData() {
@@ -31,7 +33,8 @@ function LoginPage ({dataSetter}) {
         // Bucle para obtener el ID del usuario usando su nombre
         for (let idx = 0; idx < users.length; idx++) {
             if (userName === users[idx].name) {               
-                setUserId(users[idx].id)               
+                setUserId(users[idx].id)
+                setLoggedIn(true)
              }            
         }        
     }
