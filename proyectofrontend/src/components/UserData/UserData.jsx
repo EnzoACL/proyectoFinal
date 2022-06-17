@@ -1,9 +1,13 @@
 import { useContext, useEffect, useState } from 'react'
 import Avatar from '../Avatar/Avatar'
 import { get } from '../../aux_api';
+import UserProfile from '../Views/UserProfile';
+import { useParams, useNavigate, Link } from "react-router-dom"
 
 
 function UserData({ userId }) {
+    const [currentView, setCurrentView] = useState(undefined)
+    
     const [nameOfUser, setNameOfUser] = useState("")
     const infoAvatar = `foto de perfil de ${nameOfUser}`
     const urlAvatar = `https://fiverr-res.cloudinary.com/images/t_smartwm/t_delivery_thumb,q_auto,f_auto/deliveries/101236368/original/maxtimkovichUPDATED/create-custom-pixel-avatar-pokemon-character-icon.png`
@@ -22,12 +26,11 @@ function UserData({ userId }) {
         
     
     return (
-        <>
-            
+        <>         
             <Avatar url={urlAvatar} info={infoAvatar}/>
-            {nameOfUser}                       
+            <Link to={"/name/V0.0/user/" + userId}><a>{nameOfUser}</a></Link>
         </>
     )
 }
-
+//Pasar prop userId a componente Link
 export default UserData

@@ -9,12 +9,18 @@ import CreatePost from './components/Post/CreatePost';
 import SearchBar from './components/SearchBar/SearchBar';
 import Registrerpage from './components/Registrerpage';
 import UserFeed from './components/UserFeed/UserFeed'
+import { Routes } from 'react-router-dom';
+import {Route} from 'react-router-dom'
+import UserProfile from './components/Views/UserProfile';
 function App() {
 
 
 
-  return (
+  return (    
     <> 
+      <Routes>
+        <Route path={"/name/V0.0/user/:id"} element={<UserProfile />} />
+      </Routes>
       <h1>______________________________</h1>
       <Personal />
       <h1>______________________________</h1>
@@ -23,20 +29,14 @@ function App() {
       <SearchBar />
       <h1>______________________________</h1>
       <UserFeed />
-      <h1>______________________________</h1>
+      <h1>______________________________</h1>      
     </>
-)
+  )
 }
 
 export default App;
 
 //Mejorar buscador para que busque de forma dinamica.
 
-//Cambiar base de datos para añadir la fecha de los post y quizas una descripccion personalizada para cada usuario.
-
-//Añadir react router link en user data para generar links a los perfiles de los usuarios usando el id que le pasamos
-//al componente. 
-
-//Arreglar el componente de CreatePost (el post que se crea no tiene contenido).
-
+//Añadir BrowserRouter para enseñar paginas de perfil de usuario en App.js
 

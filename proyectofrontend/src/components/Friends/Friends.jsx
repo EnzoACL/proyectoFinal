@@ -4,17 +4,19 @@ import { Context } from '../Storage/Storage'
 import { useContext } from 'react'
 import UserData from '../UserData/UserData';
 
-export function Friends() {
+export function Friends(userId) {
     const data = useContext(Context)
     const [friendList, setFriendList] = useState();
     const friendListArray = []
-    const friendListIds= []
+    const friendListIds = []
+    const userIdNumber = Object.values(userId)
+    console.log(userIdNumber);
 
     async function getFriendsOf() {
+
         //Se compara los id de lista de amigos y usuarios y se saca los nombres de los amigos
-        const friendsOfUsers = await get(`http://localhost:4000/name/V0.0/friends/${data.userId}`);        
+        const friendsOfUsers = await get(`http://localhost:4000/name/V0.0/friends/${userIdNumber[0]}`);
         const users = await get("http://localhost:4000/name/V0.0/users/");       
-       
         for (let item of users) {
             for (let thing of friendsOfUsers) {
                 if (item.id === thing.confirm_userid)
