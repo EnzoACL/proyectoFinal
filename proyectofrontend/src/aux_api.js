@@ -1,4 +1,4 @@
-/**
+/** Get
  * 
  * @param {string} url - The url of the petition.
  * @returns data
@@ -9,7 +9,29 @@ export async function get(url) {
     return data;
 }
 
-/**
+/** Post sin autorizacion
+ * 
+ * @param {string} url Url para hacer el post 
+ * @param {json} data  Datos de usuario (name, password, isuser)
+ * @returns 
+ */
+export async function post(url, data) {
+    const response = await fetch(
+        url,
+        {
+            method: 'POST',
+            body: data,
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+    );
+    const responseData = await response.json();
+    return responseData;
+
+}
+
+/** Post con autorizacion
  * 
  * @param {string} url - Url para hacer post.
  * @param {string} token - Token de autorizacion.
@@ -33,7 +55,7 @@ export async function authPost(url, token, data) {
 }
 
 
-/**
+/** Obtener token de autorizacion
  * 
  * @param {string} id - Id de usuario, se usa el context para pasarselo.
  * @param {string} secret - Contraseña del usuario, tambien se usa context.
@@ -45,7 +67,7 @@ export function authToken(id, secret) {
     return `Basic ${base64token}`;
 }
 
-/**
+/** Funcion para dar formato a la fecha
  * 
  * @param {number} miliseconds Funcion usada para modificar la fecha de milisecs a fecha-hora
  * @returns 
