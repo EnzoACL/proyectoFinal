@@ -1,10 +1,10 @@
 import { Context } from '../Storage/Storage'
-import { useContext, useState, useSyncExternalStore } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { get, dateArrange } from '../../aux_api';
-import Posts from '../Post/Posts';
 import UserData from "../UserData/UserData";
 import Buttons from "../ButtonsRRSS/Buttons";
 import ShowComments from "../Comments/ShowComments";
+import { Link } from "react-router-dom"
 
 
 
@@ -31,50 +31,53 @@ function UserFeed() {
         //Se compara los id de lista de amigos y usuarios y se saca los nombres de los amigos
         const friendsOfUser = await get(`http://localhost:4000/name/V0.0/friends/${data.userId}`)
         const arrayConfirm_userid = friendsOfUser.map(
-           item => item.confirm_userid
+            item => item.confirm_userid
         )
         for (let item of arrayConfirm_userid) {
             
             const postsOfFriends = (await get(`http://localhost:4000/name/V0.0/publicationsofuser/${item}`))
             for (let item of postsOfFriends) {
-                postsOfFriendsArray.push(item)    
+                postsOfFriendsArray.push(item)
             }
         }
         
         postsOfFriendsArray.sort(
             function (x, y) {
-                return y.timeposted - x.timeposted      
+                return y.timeposted - x.timeposted
             }
         );
         console.log(postsOfFriendsArray);
 
         setPostsOfFeed(
             <p>
-            {
+                {
                 
-                postsOfFriendsArray.map((post) => (
-                    <>
-                        <div key={post.id}>
-                            <UserData userId={post.idfromuser}/>
-                            <p>{post.content}</p>
-                            <p>{dateArrange(post.timeposted)}</p>
-                            <p><Buttons></Buttons></p>
-                            <p><ShowComments postId={post.id}/></p>
-                        </div> 
-                    </>
-                ))
-            }
+                    postsOfFriendsArray.map((post) => (
+                        <>
+                            <div key={post.id}>
+                                <UserData userId={post.idfromuser} />
+                                <p>{post.content}</p>
+                                <p>{dateArrange(post.timeposted)}</p>
+                                <p><Buttons></Buttons></p>
+                                <p><ShowComments postId={post.id} /></p>
+                            </div>
+                        </>
+                    ))
+                }
             
              
-             </p>
+            </p>
         )
-        
-    } 
+    }
+    useEffect(
+        () => (getPostsOfFriends), []
+    );    
     return (
         <>
-            <h1>Feed de {data.user} id:{data.userId}</h1>
-            <input type="button" value="test" onClick={getPostsOfFriends} />
+            <h1>Feed de {data.user} id:{data.userId}</h1>      
             {postsOfFeed}
+           
+            
         </>
     )
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState, createContext } from 'react';
+import { Link } from 'react-router-dom';
 import {get} from '../aux_api'
 
 function LoginPage ({dataSetter}) {
@@ -46,7 +47,10 @@ function LoginPage ({dataSetter}) {
             <input type="text" onChange={getUserName} />
             <p>Password:</p>
             <input type="text" onChange={getUserPassword} />
-            <input type="button" value="Entrar" onClick={getData} />            
+            
+                <input type="button" value="Entrar" onClick={getData} />
+            
+            
         </>
     );
 }
