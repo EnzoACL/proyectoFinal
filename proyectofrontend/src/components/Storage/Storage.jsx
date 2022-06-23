@@ -12,14 +12,12 @@ export function ContextProvider({ children }) {
     });
     return (
         <>
-            {!data.loggedIn && <LoginPage dataSetter={setData} />}
-            <Context.Provider value={data}>
-               
+            <LoginPage dataSetter={setData}/>
+            <Context.Provider value={data}>           
                 {children}
             </Context.Provider>
         </>
     )
 }
 
-//para usar context data.user data.password data.userId
-
+//para usar context data.user data.password data.userId en return: 

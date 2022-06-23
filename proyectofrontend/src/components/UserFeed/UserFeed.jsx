@@ -4,14 +4,12 @@ import { get, dateArrange } from '../../aux_api';
 import UserData from "../UserData/UserData";
 import Buttons from "../ButtonsRRSS/Buttons";
 import ShowComments from "../Comments/ShowComments";
-import { Link } from "react-router-dom"
 
 
 
 function UserFeed() {
     const [postsOfFeed, setPostsOfFeed] = useState("");
     const data = useContext(Context)
-    const postsOfFriendsArray = []
     /**
      * Funcion usada para limpiar el array postsOfFriendsArray, si no los posts se pushearian y se repetirian.
      * @param {constant} array Se pasa como argumento un array que se quiera dejar vacio.
@@ -27,6 +25,9 @@ function UserFeed() {
     //Enseñar ultimos posts de gente que sigue el userId
 
     async function getPostsOfFriends() {
+
+        const postsOfFriendsArray = []
+
         clearArray(postsOfFriendsArray)
         //Se compara los id de lista de amigos y usuarios y se saca los nombres de los amigos
         const friendsOfUser = await get(`http://localhost:4000/name/V0.0/friends/${data.userId}`)
@@ -69,9 +70,8 @@ function UserFeed() {
             </p>
         )
     }
-    useEffect(
-        () => (getPostsOfFriends), []
-    );    
+
+  
     return (
         <>
             <h1>Feed de {data.user} id:{data.userId}</h1>      

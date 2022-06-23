@@ -9,6 +9,8 @@ import {Route} from 'react-router-dom'
 import UserProfile from './components/Views/UserProfile';
 import { useContext } from 'react'
 import { Context } from './components/Storage/Storage'
+import LoginPage from './components/Loginpage';
+import Authorization from './components/Authorization/Authorization';
 function App() {
 
 const data = useContext(Context);
@@ -16,23 +18,20 @@ const data = useContext(Context);
   
   return (    
     <>
-      {!data.loggedIn && <Registrerpage />}
       <Routes>
-        
+        <Route path={`/register`} element={<Registrerpage/>} />
         <Route path={`/name/V0.0/user/:id`} element={<UserProfile />} />
-        <Route path={`/name/v0.0/feed`} element={<UserFeed/>}/>
+        <Route path='/' element={<UserFeed/>}/>         
       </Routes>
-
-
-       
-      <h1>______________________________</h1>     
+      
     </>
   )
 }
 
 export default App;
-
-//Arreglar las vistas
+//Cambiar storage, quitar data setter
+//Desplegar
+//Vistas con router
 //CSS
 //Añadir jwt authorization
 //Arreglar en buttons boton comentar

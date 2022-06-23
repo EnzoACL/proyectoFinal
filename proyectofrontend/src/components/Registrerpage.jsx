@@ -1,6 +1,6 @@
 import { useState } from "react";
-import {post} from "../aux_api.js"
-
+import { post } from "../aux_api.js"
+import { Link } from "react-router-dom"
 function Registrerpage() {
     const [userName, setUserName] = useState();
     const getUserName = (event) => {
@@ -34,7 +34,7 @@ function Registrerpage() {
             <input type="text" onChange={getUserName} />
             <p>Contraseña:</p>
             <input type="text" onChange={getPassword} />
-            <input type="button" value="Registrarse" onClick={registerUser} />
+            <Link to={`/`}><input type="button" value="Registrarse" onClick={registerUser} /></Link>
 
             <p>
                 <a>Registrarse como usuario</a>
