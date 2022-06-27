@@ -21,7 +21,8 @@ const data = useContext(Context);
       <Routes>
         <Route path={`/register`} element={<Registrerpage/>} />
         <Route path={`/name/V0.0/user/:id`} element={<UserProfile />} />
-        <Route path='/' element={<UserFeed/>}/>         
+        <Route path='/' element={<LoginPage />} />
+        <Route path='/feed' element={<UserFeed/>} />
       </Routes>
       
     </>
@@ -29,7 +30,7 @@ const data = useContext(Context);
 }
 
 export default App;
-//Cambiar storage, quitar data setter
+//Cambiar storage, quitar data setter.
 //Desplegar
 //Vistas con router
 //CSS
@@ -37,6 +38,7 @@ export default App;
 //Arreglar en buttons boton comentar
 //Poder añadir imagenes en posts
 //Mejorar buscador para que busque de forma dinamica.
+//Subir propio avatar
 
 
 /*

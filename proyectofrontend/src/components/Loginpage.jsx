@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {get} from '../aux_api'
-import { ContextProvider } from './Storage/Storage';
+import { Context, ContextProvider } from './Storage/Storage';
 
-function LoginPage ({dataSetter}) {
-    const [userName, setUserName] = useState();
-    const [password, setPassword] = useState();
-    const [userId, setUserId] = useState();
-    const [loggedIn, setLoggedIn] = useState(false);
-
+function LoginPage() {
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    
+    const [data, setData] = useContext(Context)
 
     const getUserName = (event) => {
         setUserName(event.target.value)
@@ -16,27 +15,17 @@ function LoginPage ({dataSetter}) {
     const getUserPassword = (event) => {
         setPassword(event.target.value)
     }
-
-    useEffect(
-        () => {
-            dataSetter({
-                user: userName,
-                password: password,
-                userId: userId,
-                loggedIn: loggedIn,
-            })
-        },
-        [userName, password, userId, loggedIn]
-    )
+    
     async function getData() {
         const users = await get("http://localhost:4000/name/V0.0/users/");
         // Bucle para obtener el ID del usuario usando su nombre
         for (let idx = 0; idx < users.length; idx++) {
-            if (userName === users[idx].name) {               
-                setUserId(users[idx].id)
-                setLoggedIn(true)
-             }            
-        }        
+            if (userName === users[idx].name) {
+                const dataCopy = { ...data, user: userName, password, userId: users[idx].id }
+                //setUserId(users[idx].id)
+                setData(dataCopy)
+            }
+        }
     }
     
  
@@ -49,7 +38,8 @@ function LoginPage ({dataSetter}) {
             <p>Contraseña:</p>
             <input type="text" onChange={getUserPassword} />            
             <input type="button" value="Entrar" onClick={getData} />
-            <Link to={"/register/"}><a>¡Registrate!</a></Link>
+            <Link to={"/register"}><a>¡Registrate!</a></Link>
+            <Link to={"/feed"}> Feed </Link>
 
 
             
