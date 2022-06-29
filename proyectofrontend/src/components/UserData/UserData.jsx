@@ -6,7 +6,6 @@ import { useParams, useNavigate, Link } from "react-router-dom"
 
 
 function UserData({ userId }) {
-    const [currentView, setCurrentView] = useState(undefined)
     
     const [nameOfUser, setNameOfUser] = useState("")
     const infoAvatar = `foto de perfil de ${nameOfUser}`

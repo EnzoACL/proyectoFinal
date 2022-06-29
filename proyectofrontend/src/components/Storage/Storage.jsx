@@ -4,7 +4,11 @@ import { useState, createContext } from "react";
 export const Context = createContext();
 
 export function ContextProvider({ children }) {
-    const  data  = useState()
+    const data = useState({
+        user: "",
+        password: "",
+        userId: ""
+    })
     return (
         <>
             <Context.Provider value={data}>           

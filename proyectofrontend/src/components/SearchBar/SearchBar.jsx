@@ -58,7 +58,7 @@ function SearchBar() {
 
     return (
         <>
-            <h1>Ejemplo de buscador</h1>
+            <h1>🔍 Buscador</h1>
             <input placeholder="Buscar..." onChange={getUserNameOf}/>
             <input type="button" value="🔍" onClick={startSearch} />
             <ul>{userList}</ul>

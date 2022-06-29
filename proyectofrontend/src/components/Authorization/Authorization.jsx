@@ -5,8 +5,7 @@ import { Context } from '../Storage/Storage'
 
 function Authorization({ children }) {
     
-    const  data  = useContext(Context)
-
+    const [data, setData] = useContext(Context)
 
     return (
         <>

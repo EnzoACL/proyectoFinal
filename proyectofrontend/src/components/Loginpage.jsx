@@ -22,7 +22,6 @@ function LoginPage() {
         for (let idx = 0; idx < users.length; idx++) {
             if (userName === users[idx].name) {
                 const dataCopy = { ...data, user: userName, password, userId: users[idx].id }
-                //setUserId(users[idx].id)
                 setData(dataCopy)
             }
         }
@@ -38,8 +37,8 @@ function LoginPage() {
             <p>Contraseña:</p>
             <input type="text" onChange={getUserPassword} />            
             <input type="button" value="Entrar" onClick={getData} />
-            <Link to={"/register"}><a>¡Registrate!</a></Link>
-            <Link to={"/feed"}> Feed </Link>
+            <p><Link to={"/register"}><a>¿No tienes una cuenta?¡Registrate!</a></Link></p>
+            
 
 
             

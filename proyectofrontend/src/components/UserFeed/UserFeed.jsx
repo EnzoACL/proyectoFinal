@@ -10,7 +10,7 @@ import ShowComments from "../Comments/ShowComments";
 function UserFeed() {
     const [postsOfFeed, setPostsOfFeed] = useState("");
     const [data, setData] = useContext(Context)
-    console.log(data);
+    
     /**
      * Funcion usada para limpiar el array postsOfFriendsArray, si no los posts se pushearian y se repetirian.
      * @param {constant} array Se pasa como argumento un array que se quiera dejar vacio.
@@ -49,7 +49,6 @@ function UserFeed() {
                 return y.timeposted - x.timeposted
             }
         );
-        console.log(postsOfFriendsArray);
 
         setPostsOfFeed(
             <p>

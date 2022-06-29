@@ -11,45 +11,43 @@ import { useContext } from 'react'
 import { Context } from './components/Storage/Storage'
 import LoginPage from './components/Loginpage';
 import Authorization from './components/Authorization/Authorization';
+import UserData from './components/UserData/UserData';
+import NavigatorBar from './components/Navigator/Navigator';
 function App() {
 
-const data = useContext(Context);
-
+  const [data, setData] = useContext(Context)
   
-  return (    
-    <>
+  return (
+    <>      
       <Routes>
         <Route path={`/register`} element={<Registrerpage/>} />
         <Route path={`/name/V0.0/user/:id`} element={<UserProfile />} />
-        <Route path='/' element={<LoginPage />} />
-        <Route path='/feed' element={<UserFeed/>} />
+        <Route path='/' element={
+            <Authorization>
+              <UserData userId={data.userId}/>
+              <UserFeed/>
+            </Authorization>
+          }/>
+        <Route path='/search' element={<SearchBar />} />
+        <Route path='/createPost' element={<CreatePost/>}/>
       </Routes>
-      
+      <NavigatorBar/>
     </>
   )
 }
 
 export default App;
-//Cambiar storage, quitar data setter.
 //Desplegar
-//Vistas con router
-//CSS
+//CSS :(
 //Añadir jwt authorization
-//Arreglar en buttons boton comentar
+//Crear sesion de usuario
+//Arreglar en buttons boton comentar y like
 //Poder añadir imagenes en posts
 //Mejorar buscador para que busque de forma dinamica.
 //Subir propio avatar
+//Migrar base de datos(despues de desplegar)
 
 
-/*
-      <h1>______________________________</h1>
-      <Personal />
-      <h1>______________________________</h1>
-      <CreatePost />
-      <h1>______________________________</h1>
-      <SearchBar />
-      <h1>______________________________</h1>
 
- */
 
 
