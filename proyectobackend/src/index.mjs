@@ -1,4 +1,5 @@
 import express, { json } from "express";
+import { config } from "dotenv"
 
 import { getUsersController,getOneUserController, postUserController } from "./controllers/usersControllers.mjs";
 import { deletePublicationController, getPublicationsOfUserController, postPublicationController } from "./controllers/publicationControllers.mjs";
@@ -31,7 +32,7 @@ try {
 
 
     
-    app.listen(process.env.PORT || 4000, () => {
+    app.listen(process.env.PORT, () => {
         console.log("Express running...");
 
     });
