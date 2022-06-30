@@ -10,7 +10,8 @@ RUN npm install
 RUN npm run build
 RUN rm .gitignore package.json package-lock.json public INFO.md src node_modules -rf
 
-WORKDIR /usr/src/app/proyectobackend/src/
+WORKDIR /usr/src/app/proyectobackend/
 RUN npm install --omit=dev
+RUN rm .gitignore package-lock.json .env -rf
 
 ENTRYPOINT [ "npm", "start" ]
