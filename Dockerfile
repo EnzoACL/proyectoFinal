@@ -2,7 +2,7 @@ FROM node:16
 
 EXPOSE 8080
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/
 COPY . . 
 
 WORKDIR /usr/src/app/frontend
