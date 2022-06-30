@@ -5,12 +5,12 @@ EXPOSE 8080
 WORKDIR /usr/src/app/
 COPY . . 
 
-WORKDIR /usr/src/app/frontend
+WORKDIR /usr/src/app/proyectofrontend
 RUN npm install
 RUN npm run build
 RUN rm .gitignore package.json package-lock.json public INFO.md src node_modules -rf
 
-WORKDIR /usr/src/app/backend
+WORKDIR /usr/src/app/proyectobackend
 RUN npm install --omit=dev
 
 ENTRYPOINT [ "npm", "start" ]
