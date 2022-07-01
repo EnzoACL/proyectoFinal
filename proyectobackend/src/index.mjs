@@ -11,7 +11,7 @@ const PATH_PREFIX = "/name/V0.0"
 const app = express();
 
 try {
-    app.use("/",express.static("../../proyectofrontend/build", {index: "index.html"}))
+    app.use("/",express.static("../proyectofrontend/build", {index: "index.html"}))
     const jsonParser = express.json();
     app.get(PATH_PREFIX + "/users/", jsonParser, getUsersController);
     app.get(PATH_PREFIX + "/user/:userId", jsonParser, getOneUserController);
