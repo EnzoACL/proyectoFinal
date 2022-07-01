@@ -30,18 +30,18 @@ function LoginPage() {
  
 
     return (
-        <>            
-            <h1>¡Bienvenido!</h1>
-            <p>Usuario:</p>
-            <input type="text" onChange={getUserName} />
-            <p>Contraseña:</p>
-            <input type="text" onChange={getUserPassword} />            
-            <input type="button" value="Entrar" onClick={getData} />
-            <p><Link to={"/register"}><a>¿No tienes una cuenta?¡Registrate!</a></Link></p>
-            
-
-
-            
+        <>
+            <div className='login'>
+                <div className='divlogin'>
+                    <h1>¡Bienvenido!</h1>
+                    <p>Usuario:</p>
+                    <input type="text" onChange={getUserName} />
+                    <p>Contraseña:</p>
+                    <input type="text" onChange={getUserPassword} />            
+                    <input type="button" value="Entrar" onClick={getData} />
+                    <p><Link to={"/register"}><a>¿No tienes una cuenta?¡Registrate!</a></Link></p>
+                </div>
+            </div>
         </>
     );
 }

@@ -29,8 +29,8 @@ function Registrerpage() {
 
     return (
         <>
-            <div className="logpage">
-                <div className="login">
+            <div className="login">
+                <div className="divlogin">
                     <h1>Registrate</h1>
                     <p>Uusuario:</p>
                     <input type="text" onChange={getUserName} />

@@ -8,12 +8,8 @@ function Authorization({ children }) {
     const [data, setData] = useContext(Context)
 
     return (
-        <>
-            <div className="logpage">
-                <div className="login">
-                { data.userId ? children : <LoginPage/>}
-                </div>
-            </div>
+        <>           
+            { data.userId ? children : <LoginPage/>}            
         </>
     )
 }
