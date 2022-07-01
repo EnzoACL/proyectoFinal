@@ -25,9 +25,12 @@ function UserData({ userId }) {
         
     
     return (
-        <>         
-            <Avatar url={urlAvatar} info={infoAvatar}/>
-            <Link to={"/name/V0.0/user/" + userId}><a>{nameOfUser}</a></Link>
+        <>
+            
+            <div className='div1'>
+                <Avatar url={urlAvatar} info={infoAvatar}/>
+                <Link to={"/name/V0.0/user/" + userId}><a>{nameOfUser}</a></Link>
+            </div>
         </>
     )
 }

@@ -9,7 +9,11 @@ function Authorization({ children }) {
 
     return (
         <>
-            { data.userId ? children : <LoginPage/>}
+            <div className="logpage">
+                <div className="login">
+                { data.userId ? children : <LoginPage/>}
+                </div>
+            </div>
         </>
     )
 }

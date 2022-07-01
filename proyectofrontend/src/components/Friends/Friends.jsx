@@ -26,7 +26,7 @@ export function Friends({ userId }) {
             }            
         }
             if (friendList === "") {
-                setFriendList(
+                setFriendList( 
                     <>
                         {
                             friendListArray.map((friends) => (
@@ -41,12 +41,14 @@ export function Friends({ userId }) {
                 )
             } else {setFriendList("")}
         }
+        
     
     return (
         <>
-            <p>Amigos</p>
-            <input type="button" value="Lista amigos" onClick={getFriendsOf}/>
-            <p>{friendList}</p>
+            <input type="button" value="   👬 Amigos   " onClick={getFriendsOf}/>
+            
+                <p>{friendList}</p>
+            
         </>
     )
 }

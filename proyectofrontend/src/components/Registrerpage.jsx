@@ -29,21 +29,26 @@ function Registrerpage() {
 
     return (
         <>
-            <h1>Registrate</h1>
-            <p>Uusuario:</p>
-            <input type="text" onChange={getUserName} />
-            <p>Contraseña:</p>
-            <input type="text" onChange={getPassword} />
-            <Link to={`/`}><input type="button" value="Registrarse" onClick={registerUser} /></Link>
+            <div className="logpage">
+                <div className="login">
+                    <h1>Registrate</h1>
+                    <p>Uusuario:</p>
+                    <input type="text" onChange={getUserName} />
+                    <p>Contraseña:</p>
+                    <input type="text" onChange={getPassword} />
+                    <Link to={`/`}><input type="button" value="Registrarse" onClick={registerUser} /></Link>
 
-            <p>
-                <a>Registrarse como usuario</a>
-                <input type="checkbox" value="Registrarse como usuario" onClick={userIsPerson} />
-            </p>
-            <p>
-                <a>Registrarse como grupo</a>
-                <input type="checkbox" value="Registrarse como grupo" onClick={userIsGroup} />
-            </p>
+                    <p>
+                        <a>Registrarse como usuario</a>
+                        <input type="checkbox" value="Registrarse como usuario" onClick={userIsPerson} />
+                    </p>
+                    <p>
+                        <a>Registrarse como grupo</a>
+                        <input type="checkbox" value="Registrarse como grupo" onClick={userIsGroup} />
+                    </p>
+                </div>
+            </div>
+            
         </>
     )
 }

@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
-import CreatePost from "../Post/CreatePost"
+import Friends from "../Friends/Friends"
 
-export function NavigatorBar() {
+export function NavigatorBar({ userId }) {
     return (
-        <>
-             <Link to={"/"}><input type="button" value="Inicio" /> </Link>
-            <Link to={"/search"}> <input type="button" value="Buscar" /> </Link>
-            <Link to={"/createPost"}><input type="button" value="Crear post" /></Link>
+        <>            
+            <p><Link to={"/"}><input type="button" value="     🏠 Inicio    " /> </Link></p>
+            <p><Link to={"/search"}> <input type="button" value=" 🔍 Buscador " /> </Link></p>
+            <p><Link to={"/createPost"}><input type="button" value="📝 Crear post" /></Link></p>
+            <Friends userId={userId}/>
         </>
     )
 }

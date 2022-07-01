@@ -75,11 +75,8 @@ function UserFeed() {
         ()=>getPostsOfFriends,[data.userId]
     )
     return (
-        <>
-            <h1>Feed de {data.user} id:{data.userId}</h1>      
-            {postsOfFeed}
-           
-            
+        <>       
+            {postsOfFeed}   
         </>
     )
 }

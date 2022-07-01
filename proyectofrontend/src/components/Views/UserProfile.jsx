@@ -1,6 +1,7 @@
 import UserData from '../UserData/UserData'
 import Posts from '../Post/Posts'
 import Friends from '../Friends/Friends'
+import NavigatorBar from '../Navigator/Navigator';
 import { useParams } from 'react-router-dom';
 function UserProfile() {
     const { id } = useParams();
@@ -8,10 +9,15 @@ function UserProfile() {
 
     return (
         <>
-            <h1>Ejemplo de perfil de otra persona</h1>
-            <UserData userId={idToNumber}/>
-            <Posts userId={idToNumber}></Posts>           
-            <Friends userId={idToNumber} />
+            <div className='parent'>
+                <div className='div1'>
+                    <UserData userId={idToNumber} />
+                    <NavigatorBar userId={idToNumber} /> 
+                </div>
+                <div className='div2'>
+                    <Posts userId={idToNumber}></Posts> 
+                </div>
+            </div>
         </>
     )
 }

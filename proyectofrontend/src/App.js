@@ -1,5 +1,4 @@
 import './App.css';
-import Personal from './components/PersonalProfile/Personal'
 import CreatePost from './components/Post/CreatePost';
 import SearchBar from './components/SearchBar/SearchBar';
 import Registrerpage from './components/Registrerpage';
@@ -9,10 +8,10 @@ import {Route} from 'react-router-dom'
 import UserProfile from './components/Views/UserProfile';
 import { useContext } from 'react'
 import { Context } from './components/Storage/Storage'
-import LoginPage from './components/Loginpage';
 import Authorization from './components/Authorization/Authorization';
 import UserData from './components/UserData/UserData';
 import NavigatorBar from './components/Navigator/Navigator';
+import Friends from './components/Friends/Friends';
 function App() {
 
   const [data, setData] = useContext(Context)
@@ -21,24 +20,35 @@ function App() {
     <>      
       <Routes>
         <Route path={`/register`} element={<Registrerpage/>} />
-        <Route path={`/name/V0.0/user/:id`} element={<UserProfile />} />
+        <Route path={`/name/V0.0/user/:id`} element={<UserProfile/>}/>
+        
         <Route path='/' element={
-            <Authorization>
-              <UserData userId={data.userId}/>
-              <UserFeed/>
+          <Authorization>
+            <div className='parent'>
+              <div className='div1'>
+                <UserData userId={data.userId} />
+                <NavigatorBar userId={data.userId} />
+              </div>
+              <div className='div2'>
+              <UserFeed />
+              </div>              
+            </div>
             </Authorization>
+          } />
+        <Route path='/search' element={<SearchBar/>} />
+        <Route path='/createPost' element={
+          <Authorization>
+            <CreatePost />
+          </Authorization>
           }/>
-        <Route path='/search' element={<SearchBar />} />
-        <Route path='/createPost' element={<CreatePost/>}/>
       </Routes>
-      <NavigatorBar/>
     </>
   )
 }
 
 export default App;
-//Desplegar
-//CSS :(
+//Paginacion para feed y perfiles de usuario
+//CSS 
 //Añadir jwt authorization
 //Crear sesion de usuario
 //Arreglar en buttons boton comentar y like

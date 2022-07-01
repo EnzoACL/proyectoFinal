@@ -14,7 +14,7 @@ import UserData from '../UserData/UserData';
              setCommentsShow(
                  <>
                      <UserData userId={commentsFromPost[0].idfromusercomment} />
-                     : {commentsFromPost[0].content}
+                      {commentsFromPost[0].content}
                  </>
              )
          } else {setCommentsShow("")} 
