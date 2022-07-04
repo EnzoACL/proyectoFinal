@@ -33,7 +33,7 @@ function LoginPage() {
         <>
             <div className='login'>
                 <div className='divlogin'>
-                    <h1>¡Bienvenido!</h1>
+                    <h1>¡Bienvenido! test: user: Manuel pass: 1</h1>
                     <p>Usuario:</p>
                     <input type="text" className='input-text' onChange={getUserName} />
                     <p>Contraseña:</p>
