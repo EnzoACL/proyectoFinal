@@ -29,7 +29,7 @@ function CreatePost() {
     return (
         <>  
                                         
-            <p>Crear tu piblicación</p>
+            <p>Crear tu publicación</p>
             <p>
                 <textarea type="text" id="postContent" name="postContent" onChange={getPostContent} />
             </p>

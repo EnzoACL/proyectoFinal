@@ -1,6 +1,5 @@
 import UserData from '../UserData/UserData'
 import Posts from '../Post/Posts'
-import Friends from '../Friends/Friends'
 import NavigatorBar from '../Navigator/Navigator';
 import { useParams } from 'react-router-dom';
 function UserProfile() {

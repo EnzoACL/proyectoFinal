@@ -28,6 +28,7 @@ export function Friends({ userId }) {
             if (friendList === "") {
                 setFriendList( 
                     <>
+                        <div className='friendlist'>
                         {
                             friendListArray.map((friends) => (
                                 <>
@@ -36,7 +37,8 @@ export function Friends({ userId }) {
                                     </div>
                                 </>
                             ))
-                        }
+                            }
+                        </div>
                     </>
                 )
             } else {setFriendList("")}

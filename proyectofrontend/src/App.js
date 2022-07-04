@@ -11,7 +11,6 @@ import { Context } from './components/Storage/Storage'
 import Authorization from './components/Authorization/Authorization';
 import UserData from './components/UserData/UserData';
 import NavigatorBar from './components/Navigator/Navigator';
-import Friends from './components/Friends/Friends';
 function App() {
 
   const [data, setData] = useContext(Context)
@@ -30,15 +29,24 @@ function App() {
                 <NavigatorBar userId={data.userId} />
               </div>
               <div className='div2'>
-              <UserFeed />
+                <UserFeed />
               </div>              
             </div>
             </Authorization>
           } />
+        
         <Route path='/search' element={<SearchBar/>} />
         <Route path='/createPost' element={
           <Authorization>
-            <CreatePost />
+            <div className='parent'>
+              <div className='div1'>
+                <UserData userId={data.userId} />
+                <NavigatorBar userId={data.userId} />
+              </div>
+              <div className='div2'>
+                <CreatePost />
+              </div>              
+            </div>
           </Authorization>
           }/>
       </Routes>

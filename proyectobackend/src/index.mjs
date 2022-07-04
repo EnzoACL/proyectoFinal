@@ -1,7 +1,7 @@
 import express, { json } from "express";
 import { config } from "dotenv"
 
-import { getUsersController,getOneUserController, postUserController } from "./controllers/usersControllers.mjs";
+import { getUsersController,getOneUserController, postUserController, deleteUserController } from "./controllers/usersControllers.mjs";
 import { deletePublicationController, getPublicationsOfUserController, postPublicationController } from "./controllers/publicationControllers.mjs";
 import { getComments, postComment, deleteComment } from "./controllers/commentsController.mjs";
 import { deleteFriendOfUser, getFriendsOfUser, postFriendOfUser } from "./controllers/friendsControllers.mjs";
@@ -16,6 +16,7 @@ try {
     app.get(PATH_PREFIX + "/users/", jsonParser, getUsersController);
     app.get(PATH_PREFIX + "/user/:userId", jsonParser, getOneUserController);
     app.post(PATH_PREFIX + "/users/", jsonParser, postUserController);
+    app.delete(PATH_PREFIX + "/user/", jsonParser, deleteUserController);
 
     app.post(PATH_PREFIX + "/publication/", jsonParser, authMiddleware , postPublicationController);
     app.delete(PATH_PREFIX + "/publication/", jsonParser, authMiddleware, deletePublicationController);

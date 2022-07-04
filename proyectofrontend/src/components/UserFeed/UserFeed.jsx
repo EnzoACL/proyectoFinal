@@ -55,13 +55,13 @@ function UserFeed() {
             </p>
         )
     }
-
+ 
     useEffect(
         ()=>getPostsOfFriends,[]
     )
     return (
-        <>       
-            {postsOfFeed}   
+        <>
+            {postsOfFeed}            
         </>
     )
 }

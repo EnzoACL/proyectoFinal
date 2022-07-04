@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { post } from "../aux_api.js"
+import { post, get } from "../aux_api.js"
 import { Link } from "react-router-dom"
 function Registrerpage() {
+   
     const [userName, setUserName] = useState();
     const getUserName = (event) => {
         setUserName(event.target.value);
@@ -19,12 +20,22 @@ function Registrerpage() {
         setUserOrGroup(false)
     }
     
-    function registerUser() {
+    async function registerUser() {
+        let userExists = false
         const url = "http://localhost:4000/name/V0.0/users/"
-        const data = JSON.stringify({ name: userName, password: password, isgroup: userOrGroup });
-        post(url, data)          
+        const data = { name: userName, password: password, isgroup: userOrGroup };
+        const users = await get("http://localhost:4000/name/V0.0/users/");
+        for (let item of users) {
+            if (item.name == data.name) {
+                userExists = true
+                window.alert("El nombre de usuario ya esta en uso.")
+            }
+        }
+        if (userExists !== true) {
+            const stringData = JSON.stringify(data)
+            post(url, stringData);
+        } 
     }
-
     
 
     return (

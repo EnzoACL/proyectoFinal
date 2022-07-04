@@ -42,3 +42,18 @@ export function postUserController(request, response) {
         }
     )
 }
+
+export function deleteUserController(request, response) {
+    const { id } = request.body;
+    db.run(
+        `DELETE FROM users WHERE id=("${id}")`,
+        (err) => {
+            if (err) {
+                console.error(err);
+                response.sendStatus(204)
+            } else {
+                response.sendStatus(202)
+            }
+        }
+    )
+}

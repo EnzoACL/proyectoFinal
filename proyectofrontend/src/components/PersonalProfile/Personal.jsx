@@ -3,7 +3,7 @@ import { Context } from '../Storage/Storage'
 import UserData from '../UserData/UserData'
 import Posts from '../Post/Posts'
 import Friends from '../Friends/Friends'
-
+//Componente sin usar.
 //El componente Personal muestra el perfil del usuario conectado actualmente.
 function Personal() {
     const data = useContext(Context);
@@ -19,5 +19,4 @@ function Personal() {
     )
 }
 
-export default Personal
 
