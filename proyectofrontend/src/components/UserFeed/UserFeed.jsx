@@ -9,30 +9,16 @@ import ShowComments from "../Comments/ShowComments";
 
 function UserFeed() {
     const [postsOfFeed, setPostsOfFeed] = useState("");
-    const [data, setData] = useContext(Context)
-    
-    /**
-     * Funcion usada para limpiar el array postsOfFriendsArray, si no los posts se pushearian y se repetirian.
-     * @param {constant} array Se pasa como argumento un array que se quiera dejar vacio.
-     */
-    function clearArray(array) {
-        array.splice(0, Infinity)
-
-    }
-
-  
+    const [data, setData] = useContext(Context)  
     //para usar context data.user data.password data.userId
-
-    //Enseñar ultimos posts de gente que sigue el userId
 
     async function getPostsOfFriends() {
 
         const postsOfFriendsArray = []
 
-        clearArray(postsOfFriendsArray)
+        
         //Se compara los id de lista de amigos y usuarios y se saca los nombres de los amigos
         const friendsOfUser = await get(`http://localhost:4000/name/V0.0/friends/${data.userId}`)
-        console.log(friendsOfUser);
         const arrayConfirm_userid = friendsOfUser.map(
             item => item.confirm_userid
         )
@@ -42,14 +28,12 @@ function UserFeed() {
             for (let item of postsOfFriends) {
                 postsOfFriendsArray.push(item)
             }
-        }
-        
+        }        
         postsOfFriendsArray.sort(
             function (x, y) {
                 return y.timeposted - x.timeposted
             }
         );
-
         setPostsOfFeed(
             <p>
                 {
@@ -71,8 +55,9 @@ function UserFeed() {
             </p>
         )
     }
+
     useEffect(
-        ()=>getPostsOfFriends,[data.userId]
+        ()=>getPostsOfFriends,[]
     )
     return (
         <>       
@@ -80,7 +65,6 @@ function UserFeed() {
         </>
     )
 }
-
 export default UserFeed
 
 

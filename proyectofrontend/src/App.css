@@ -20,3 +20,22 @@
     }
     
     .divlogin { grid-area: 2 / 2 / 3 / 3; }
+
+    
+    
+    .input-text{
+    padding:10px;
+    border-radius:20px;
+    box-shadow:5px
+  }
+
+  .input-log{
+    padding:10px;
+  border:none;
+  background-color:#3F51B5;
+  color:#fff;
+  font-weight:600;
+  border-radius:5px;
+  width:78%;
+  
+  }

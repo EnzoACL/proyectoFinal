@@ -33,10 +33,10 @@ function Registrerpage() {
                 <div className="divlogin">
                     <h1>Registrate</h1>
                     <p>Uusuario:</p>
-                    <input type="text" onChange={getUserName} />
+                    <input type="text" className='input-text' onChange={getUserName} />
                     <p>Contraseña:</p>
-                    <input type="text" onChange={getPassword} />
-                    <Link to={`/`}><input type="button" value="Registrarse" onClick={registerUser} /></Link>
+                    <input type="text" className='input-text' onChange={getPassword} />
+                    <p><Link to={`/`}><input type="button" value="Registrarse" className='input-log' onClick={registerUser} /></Link></p>
 
                     <p>
                         <a>Registrarse como usuario</a>

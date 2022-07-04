@@ -52,7 +52,7 @@ export default App;
 //Añadir jwt authorization
 //Crear sesion de usuario
 //Arreglar en buttons boton comentar y like
-//Poder añadir imagenes en posts
+//Poder añadir imagenes en posts 
 //Mejorar buscador para que busque de forma dinamica.
 //Subir propio avatar
 //Migrar base de datos(despues de desplegar)

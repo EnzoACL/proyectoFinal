@@ -35,10 +35,10 @@ function LoginPage() {
                 <div className='divlogin'>
                     <h1>¡Bienvenido!</h1>
                     <p>Usuario:</p>
-                    <input type="text" onChange={getUserName} />
+                    <input type="text" className='input-text' onChange={getUserName} />
                     <p>Contraseña:</p>
-                    <input type="text" onChange={getUserPassword} />            
-                    <input type="button" value="Entrar" onClick={getData} />
+                    <input type="text" className='input-text' onChange={getUserPassword} />            
+                    <p><input type="button" value="Entrar" className='input-log' onClick={getData} /></p>
                     <p><Link to={"/register"}><a>¿No tienes una cuenta?¡Registrate!</a></Link></p>
                 </div>
             </div>
