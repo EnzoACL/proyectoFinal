@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from 'react'
+import { useState } from 'react'
 import Avatar from '../Avatar/Avatar'
 import { get } from '../../aux_api';
-import UserProfile from '../Views/UserProfile';
-import { useParams, useNavigate, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
+import {urls} from '../../defines/defines'
+
 
 
 function UserData({ userId }) {
@@ -12,7 +13,8 @@ function UserData({ userId }) {
     const urlAvatar = `https://fiverr-res.cloudinary.com/images/t_smartwm/t_delivery_thumb,q_auto,f_auto/deliveries/101236368/original/maxtimkovichUPDATED/create-custom-pixel-avatar-pokemon-character-icon.png`
     
     async function userNameSetter() {
-        const users = await get("http://localhost:4000/name/V0.0/users/");
+        //const users = await get("http://localhost:4000/name/V0.0/users/");
+        const users = await get(urls[3])
             for (let item of users) {
                 if (item.id === userId) {
                 setNameOfUser(item.name)

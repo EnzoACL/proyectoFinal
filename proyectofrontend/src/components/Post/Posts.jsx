@@ -3,6 +3,8 @@ import UserData from "../UserData/UserData";
 import Buttons from "../ButtonsRRSS/Buttons";
 import ShowComments from "../Comments/ShowComments";
 import { get, dateArrange } from '../../aux_api'
+import {urls} from '../../defines/defines'
+
 function Posts({ userId }) {
     const [listOfPost, setListOfPost] = useState("")
 
@@ -10,7 +12,8 @@ function Posts({ userId }) {
     useEffect(
         () => {
                 async function getPostOf() {
-                    const postsOfUser = await get(`http://localhost:4000/name/V0.0/publicationsofuser/${userId}`)
+                    //const postsOfUser = await get(`http://localhost:4000/name/V0.0/publicationsofuser/${userId}`)
+                    const postsOfUser = await get(urls[5]+`${userId}`)
                     const postsOfUserReversed = [...postsOfUser].reverse();
                     setListOfPost(<p>
                         {

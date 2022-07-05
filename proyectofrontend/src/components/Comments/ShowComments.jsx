@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { get } from '../../aux_api'
 import UserData from '../UserData/UserData';
+import {urls} from '../../defines/defines'
 
  function Comments({postId}) {
     const [commentsShow, setCommentsShow] = useState ("")
@@ -9,7 +10,8 @@ import UserData from '../UserData/UserData';
     const arrayCommentsContent = []
     
      async function showComments() {
-         const commentsFromPost = await get(`http://localhost:4000/name/V0.0/comments/${postId}`)
+         //const commentsFromPost = await get(`http://localhost:4000/name/V0.0/comments/${postId}`)
+         const commentsFromPost = await get(urls[1]+`${postId}`)
          if (commentsShow === "") {
              setCommentsShow(
                  <>

@@ -1,7 +1,9 @@
-import { useEffect, useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import {get} from '../aux_api'
 import { Context, ContextProvider } from './Storage/Storage';
+import {urls} from '../defines/defines'
+
 
 function LoginPage() {
     const [userName, setUserName] = useState("");
@@ -17,7 +19,8 @@ function LoginPage() {
     }
     
     async function getData() {
-        const users = await get("http://localhost:4000/name/V0.0/users/");
+        //const users = await get("http://localhost:4000/name/V0.0/users/");
+        const users = await get(urls[3])
         // Bucle para obtener el ID del usuario usando su nombre
         for (let idx = 0; idx < users.length; idx++) {
             if (userName === users[idx].name) {

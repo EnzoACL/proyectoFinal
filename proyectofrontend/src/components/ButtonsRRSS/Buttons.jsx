@@ -2,6 +2,7 @@ import { useState, useContext } from "react"
 import { Context } from '../Storage/Storage'
 import { authPost } from '../../aux_api';
 import { authToken } from '../../aux_api';
+import {urls} from '../../defines/defines'
 
 function Buttons({idFromPost}) {
 
@@ -28,7 +29,8 @@ function Buttons({idFromPost}) {
 
     function postComment() {
         
-        const url = "http://localhost:4000/name/V0.0/comment/"
+        //const url = "http://localhost:4000/name/V0.0/comment/"
+        const url = urls[0]
         //Aqui usamos el context para hacer el post con aut
         const tokenPost = authToken(data.user, data.password)
         authPost(url,tokenPost,postReady)

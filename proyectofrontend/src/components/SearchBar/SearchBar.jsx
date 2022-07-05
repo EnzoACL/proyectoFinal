@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { get } from '../../aux_api';
 import UserData from '../UserData/UserData';
+import {urls} from '../../defines/defines'
 
 
 //Barra de busqueda. Se hace un get de los usuarios y se filtra por nombre.
@@ -27,7 +28,8 @@ function SearchBar() {
     
     async function startSearch() {
         const idOfSearchedUsers = []
-        const users = await get("http://localhost:4000/name/V0.0/users/"); 
+        //const users = await get("http://localhost:4000/name/V0.0/users/"); 
+        const users = await get(urls[3])
         const usersNames = users.map(
             (item) => item.name
         );

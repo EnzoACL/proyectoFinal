@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { post, get } from "../aux_api.js"
 import { Link } from "react-router-dom"
+import {urls} from '../defines/defines'
+
 function Registrerpage() {
    
     const [userName, setUserName] = useState();
@@ -22,9 +24,10 @@ function Registrerpage() {
     
     async function registerUser() {
         let userExists = false
-        const url = "http://localhost:4000/name/V0.0/users/"
+        //const url = "http://localhost:4000/name/V0.0/users/"
+        const url = urls[3]
         const data = { name: userName, password: password, isgroup: userOrGroup };
-        const users = await get("http://localhost:4000/name/V0.0/users/");
+        const users = await get(url);
         for (let item of users) {
             if (item.name == data.name) {
                 userExists = true

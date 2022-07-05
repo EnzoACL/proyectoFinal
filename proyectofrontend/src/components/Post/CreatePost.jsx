@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react'
 import { Context } from '../Storage/Storage'
 import { authPost } from '../../aux_api';
 import { authToken } from '../../aux_api';
+import {urls} from '../../defines/defines'
+
 
 function CreatePost() {
     const data = useContext(Context);
@@ -18,7 +20,8 @@ function CreatePost() {
     function postPublication() {
         const publicationReady = JSON.stringify({idfromuser: data.userId, content: postBody });
         console.log(publicationReady);
-        const url = "http://localhost:4000/name/V0.0/publication/"
+        //const url = "http://localhost:4000/name/V0.0/publication/"
+        const url = urls[4]
         //Aqui usamos el context para hacer el post con aut
         const tokenPost = authToken(data.user, data.password)
         authPost(url,tokenPost,publicationReady)
