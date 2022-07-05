@@ -37,7 +37,7 @@ try {
 
 
     
-    app.listen(process.env.PORT ||4000, () => {
+    app.listen(process.env.PORT, () => {
         console.log("Express running...");
 
     });
