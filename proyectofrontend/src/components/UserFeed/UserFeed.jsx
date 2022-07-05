@@ -8,7 +8,7 @@ import ShowComments from "../Comments/ShowComments";
 
 
 function UserFeed() {
-    const [postsOfFeed, setPostsOfFeed] = useState("");
+    const [postsOfFeed, setPostsOfFeed] = useState();
     const [data, setData] = useContext(Context)  
     //para usar context data.user data.password data.userId
 
@@ -58,7 +58,7 @@ function UserFeed() {
  
     useEffect(() => {
         const interval = setInterval(() => {
-            getPostsOfFriends()}, 10000);
+            getPostsOfFriends()}, 1000);
         return () => clearInterval(interval);
       }, []);
     return (
