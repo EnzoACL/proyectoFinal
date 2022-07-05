@@ -56,9 +56,11 @@ function UserFeed() {
         )
     }
  
-    useEffect(
-        ()=>getPostsOfFriends,[]
-    )
+    useEffect(() => {
+        const interval = setInterval(() => {
+            getPostsOfFriends()}, 10000);
+        return () => clearInterval(interval);
+      }, []);
     return (
         <>
             {postsOfFeed}            
