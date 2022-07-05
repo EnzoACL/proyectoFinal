@@ -9,6 +9,9 @@ import { authMiddleware } from "./middleware/authorization.mjs";
 
 const PATH_PREFIX = "/name/V0.0"
 const app = express();
+if ( process.env.NODE_ENV != "production" ) {
+    config()
+}
 
 try {
     app.use("/",express.static("../proyectofrontend/build", {index: "index.html"}))
