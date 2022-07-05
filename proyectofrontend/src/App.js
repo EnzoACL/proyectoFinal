@@ -55,15 +55,16 @@ function App() {
 }
 
 export default App;
-//Paginacion para feed y perfiles de usuario
-//CSS 
-//Añadir jwt authorization
-//Crear sesion de usuario
-//Arreglar en buttons boton comentar y like
-//Poder añadir imagenes en posts 
+// To do list:
+//Paginacion para feed y perfiles de usuario.
+//CSS.
+//Añadir jwt authorization.
+//Crear sesion de usuario.
+//Añadir en buttons boton comentar y like.
+//Poder añadir imagenes en posts.
 //Mejorar buscador para que busque de forma dinamica.
-//Subir propio avatar
-//Migrar base de datos(despues de desplegar)
+//Subir propio avatar.
+//Migrar base de datos a MondoDB.
 
 
 

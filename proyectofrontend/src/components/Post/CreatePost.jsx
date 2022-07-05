@@ -12,9 +12,9 @@ function CreatePost() {
     const getPostContent = (event) => {
         setPostBody(event.target.value)
     }
-    
-    
-    
+    function uploadPhoto() {
+        window.alert("Función aun no disponible")
+    }    
     function postPublication() {
         const publicationReady = JSON.stringify({idfromuser: data.userId, content: postBody });
         console.log(publicationReady);
@@ -30,8 +30,9 @@ function CreatePost() {
         <>  
                                         
             <p>Crear tu publicación</p>
+            <input type="button" value="Subir imagen 📤" onClick={uploadPhoto}/>
             <p>
-                <textarea type="text" id="postContent" name="postContent" onChange={getPostContent} />
+                <textarea type="text" id="postContent" name="postContent" rows="10" cols="50" onChange={getPostContent} />
             </p>
             <p>
                 
