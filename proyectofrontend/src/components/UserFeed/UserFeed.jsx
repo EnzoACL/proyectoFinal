@@ -8,7 +8,7 @@ import ShowComments from "../Comments/ShowComments";
 
 
 function UserFeed() {
-    const [postsOfFeed, setPostsOfFeed] = useState();
+    const [postsOfFeed, setPostsOfFeed] = useState(<h1>Cargando feed...</h1>);
     const [data, setData] = useContext(Context)  
     //para usar context data.user data.password data.userId
 
